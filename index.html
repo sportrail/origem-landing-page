@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ORIGEM — Europe's Premier Gap Year Football Programme | Portugal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black:      #060606;
+    --off-black:  #0E0E0E;
+    --green-deep: #0D2B1A;
+    --green-mid:  #1A5C38;
+    --green-light:#2E7D52;
+    --gold:       #C9A84C;
+    --gold-light: #E0C06A;
+    --cream:      #F0EBE1;
+    --cream-dark: #D8D0C4;
+    --white:      #FAFAFA;
+    --gray-mid:   #666;
+    --gray-light: #999;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 60px;
+    background: linear-gradient(to bottom, rgba(6,6,6,.95) 0%, transparent 100%);
+    transition: background .4s, padding .3s;
+  }
+  nav.scrolled { background: rgba(6,6,6,.97); padding: 18px 60px; }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    letter-spacing: .08em; color: var(--white); text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-program {
+    font-size: .68rem; font-weight: 600; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--gold);
+    margin-left: 14px; vertical-align: middle;
+  }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a {
+    font-size: .78rem; font-weight: 500; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--cream-dark); text-decoration: none;
+    transition: color .25s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    font-size: .78rem; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--black);
+    background: var(--gold); border: none; padding: 13px 28px;
+    cursor: pointer; text-decoration: none; display: inline-block;
+    transition: background .25s, transform .2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative; height: 100vh; min-height: 700px;
+    display: flex; align-items: center; justify-content: flex-start; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(13,43,26,.65) 0%, transparent 70%),
+      radial-gradient(ellipse 80% 60% at 30% 80%, rgba(201,168,76,.07) 0%, transparent 60%),
+      linear-gradient(135deg, #060606 0%, #0a1a10 35%, #111 100%);
+  }
+  .hero-pitch {
+    position: absolute; inset: 0; z-index: 1; opacity: .06;
+    background-image:
+      linear-gradient(90deg, transparent 49.5%, rgba(255,255,255,.5) 49.5%, rgba(255,255,255,.5) 50.5%, transparent 50.5%),
+      linear-gradient(0deg,  transparent 49.5%, rgba(255,255,255,.5) 49.5%, rgba(255,255,255,.5) 50.5%, transparent 50.5%);
+    background-size: 120px 120px;
+  }
+  .hero-circle {
+    position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
+    width: min(50vw, 620px); height: min(50vw, 620px);
+    border-radius: 50%; z-index: 1;
+    background: radial-gradient(circle, rgba(46,125,82,.25) 0%, rgba(13,43,26,.4) 50%, transparent 70%);
+    border: 1px solid rgba(201,168,76,.12);
+  }
+  .hero-circle::before {
+    content: ''; position: absolute; inset: 14%;
+    border-radius: 50%; border: 1px solid rgba(201,168,76,.1);
+  }
+  .hero-circle::after {
+    content: ''; position: absolute; inset: 30%;
+    border-radius: 50%; border: 1px solid rgba(201,168,76,.08);
+  }
+  .hero-content { position: relative; z-index: 2; padding: 0 60px; max-width: 840px; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-size: .72rem; font-weight: 600; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 28px;
+  }
+  .hero-eyebrow::before { content: ''; display: block; width: 36px; height: 1px; background: var(--gold); }
+  .hero-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 6vw, 5.4rem);
+    font-weight: 900; line-height: 1.04; color: var(--white); margin-bottom: 12px;
+  }
+  .hero-h1 em { font-style: italic; color: var(--gold); font-weight: 400; }
+  .hero-program-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    font-weight: 300; letter-spacing: .38em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 28px; display: block;
+    opacity: .85;
+  }
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+    font-weight: 300; font-style: italic;
+    color: var(--cream-dark); margin-bottom: 48px;
+    max-width: 560px; line-height: 1.55;
+  }
+  .hero-actions { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    background: var(--gold); color: var(--black);
+    font-size: .82rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    padding: 18px 44px; border: none; cursor: pointer;
+    text-decoration: none; display: inline-block;
+    transition: background .25s, transform .2s, box-shadow .25s;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 14px 40px rgba(201,168,76,.3); }
+  .btn-ghost {
+    background: transparent; color: var(--cream);
+    font-size: .82rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+    padding: 18px 32px; border: 1px solid rgba(240,235,225,.25); cursor: pointer;
+    text-decoration: none; display: inline-block; transition: border-color .25s, color .25s;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats {
+    position: absolute; bottom: 60px; left: 60px; right: 60px; z-index: 2;
+    display: flex; gap: 56px;
+    border-top: 1px solid rgba(255,255,255,.08); padding-top: 36px;
+  }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--gold); display: block;
+  }
+  .hero-stat-label { font-size: .72rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--gray-light); }
+  .scroll-hint {
+    position: absolute; bottom: 40px; right: 60px; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--gray-mid); animation: bounce 2.4s ease-in-out infinite;
+  }
+  .scroll-hint::after { content: ''; display: block; width: 1px; height: 48px; background: linear-gradient(to bottom, var(--gray-mid), transparent); }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+  /* ── GLOBALS ── */
+  section { position: relative; overflow: hidden; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+  .section-eyebrow {
+    font-size: .72rem; font-weight: 600; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 18px; display: flex; align-items: center; gap: 14px;
+  }
+  .section-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 700; line-height: 1.12; color: var(--white);
+  }
+  .section-title em { font-style: italic; color: var(--gold); font-weight: 400; }
+  .section-body { font-size: 1.02rem; color: var(--cream-dark); line-height: 1.85; max-width: 620px; }
+  .gold-rule { width: 48px; height: 2px; background: var(--gold); margin: 24px 0; }
+  .divider {
+    width: 48px; height: 1px; background: var(--gold);
+    border: none; margin: 0;
+  }
+
+  /* ── STORY ── */
+  #story { background: var(--off-black); padding: 140px 0; }
+  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 120px; align-items: center; }
+  .story-visual { position: relative; height: 560px; }
+  .story-card-main {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg, #0D2B1A 0%, #0a1a10 50%, #060606 100%);
+    border: 1px solid rgba(201,168,76,.15);
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 48px;
+  }
+  .story-card-main::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  }
+  .story-card-flag { font-size: 5rem; margin-bottom: 16px; }
+  .story-card-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-style: italic; font-weight: 300;
+    color: var(--cream); line-height: 1.5; margin-bottom: 24px;
+  }
+  .story-card-attr { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+  .story-badge {
+    position: absolute; top: -24px; right: -24px;
+    width: 120px; height: 120px; background: var(--gold); border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .story-badge-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--black); line-height: 1; }
+  .story-badge-label { font-size: .6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--black); }
+  .story-pull {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 2.5vw, 2rem); font-style: italic; font-weight: 300;
+    color: var(--cream); line-height: 1.5;
+    border-left: 2px solid var(--gold); padding-left: 28px; margin: 36px 0;
+  }
+
+  /* ── WHY PORTUGAL ── */
+  #portugal { background: var(--black); padding: 140px 0; }
+  .portugal-intro { text-align: center; max-width: 700px; margin: 0 auto 96px; }
+  .portugal-intro .section-eyebrow { justify-content: center; }
+  .portugal-intro .section-eyebrow::before { display: none; }
+  .advantages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .adv-card {
+    background: var(--off-black); padding: 52px 40px; position: relative;
+    transition: background .3s;
+  }
+  .adv-card:hover { background: #141414; }
+  .adv-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+    opacity: 0; transition: opacity .3s;
+  }
+  .adv-card:hover::after { opacity: 1; }
+  .adv-icon { font-size: 2.4rem; margin-bottom: 24px; display: block; }
+  .adv-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 600; color: var(--white); margin-bottom: 14px; }
+  .adv-body { font-size: .9rem; color: var(--gray-light); line-height: 1.75; }
+  .adv-stat { margin-top: 20px; font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--gold); }
+  .adv-stat-label { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gray-mid); }
+
+  /* ── VS BANNER ── */
+  .vs-banner {
+    background: var(--green-deep); padding: 72px 60px;
+    border-top: 1px solid rgba(201,168,76,.12); border-bottom: 1px solid rgba(201,168,76,.12);
+  }
+  .vs-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; gap: 60px; align-items: center; }
+  .vs-col-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; letter-spacing: .05em; }
+  .vs-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+  .vs-check { color: var(--gold); font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+  .vs-cross { color: #555; font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+  .vs-item-text { font-size: .88rem; color: var(--cream-dark); line-height: 1.5; }
+  .vs-divider {
+    width: 1px; background: rgba(201,168,76,.2); align-self: stretch;
+    display: flex; align-items: center; justify-content: center; position: relative;
+  }
+  .vs-divider span {
+    background: var(--green-deep); padding: 10px 0;
+    font-family: 'Playfair Display', serif; font-size: .85rem; font-weight: 600;
+    color: var(--gold); letter-spacing: .1em;
+  }
+
+  /* ── PROGRAMME ── */
+  #program { background: var(--off-black); padding: 140px 0; }
+  .program-header { margin-bottom: 80px; }
+  .program-tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .track-card { background: var(--black); padding: 56px 48px; position: relative; overflow: hidden; }
+  .track-card.featured { background: linear-gradient(160deg, #0D2B1A 0%, #0a2013 100%); }
+  .track-card.featured::before {
+    content: 'MOST POPULAR';
+    position: absolute; top: 0; right: 0;
+    background: var(--gold); color: var(--black);
+    font-size: .62rem; font-weight: 800; letter-spacing: .18em; padding: 8px 20px;
+  }
+  .track-number { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900; color: rgba(201,168,76,.12); line-height: 1; margin-bottom: -10px; }
+  .track-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+  .track-subtitle { font-size: .82rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
+  .track-duration {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(201,168,76,.1); padding: 10px 18px; margin-bottom: 28px;
+    font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold);
+  }
+  .track-rule { width: 36px; height: 1px; background: var(--gold); margin: 24px 0; }
+  .track-feature { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+  .track-feature-check { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+  .track-feature-text { font-size: .9rem; color: var(--cream-dark); line-height: 1.5; }
+  .track-cta {
+    margin-top: 36px; display: inline-block; padding: 16px 36px;
+    font-size: .78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    text-decoration: none; cursor: pointer; border: none; transition: all .25s;
+  }
+  .track-cta.gold { background: var(--gold); color: var(--black); }
+  .track-cta.gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(201,168,76,.25); }
+  .track-cta.outline { background: transparent; color: var(--cream); border: 1px solid rgba(240,235,225,.25); }
+  .track-cta.outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── ADD-ONS ── */
+  #addons { background: var(--black); padding: 100px 0; }
+  .addons-header { text-align: center; max-width: 680px; margin: 0 auto 72px; }
+  .addons-header .section-eyebrow { justify-content: center; }
+  .addons-header .section-eyebrow::before { display: none; }
+  .addons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .addon-card {
+    background: var(--off-black); padding: 44px 36px; position: relative;
+    border-top: 2px solid transparent; transition: border-color .3s, background .3s;
+  }
+  .addon-card:hover { border-top-color: var(--gold); background: #111; }
+  .addon-icon { font-size: 2.2rem; margin-bottom: 20px; display: block; }
+  .addon-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+  .addon-tag {
+    display: inline-block; font-size: .62rem; font-weight: 700; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--gold); background: rgba(201,168,76,.1);
+    padding: 5px 12px; margin-bottom: 16px;
+  }
+  .addon-body { font-size: .88rem; color: var(--gray-light); line-height: 1.75; }
+
+  /* ── FOOTBALL EDUCATION ── */
+  #education {
+    background: linear-gradient(160deg, #0D2B1A 0%, #060606 70%);
+    padding: 140px 0;
+    border-top: 1px solid rgba(201,168,76,.12);
+    border-bottom: 1px solid rgba(201,168,76,.12);
+  }
+  .edu-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+  .edu-manifesto {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 2.8vw, 2.2rem); font-weight: 300; font-style: italic;
+    color: var(--cream); line-height: 1.45; margin-bottom: 32px;
+  }
+  .edu-manifesto strong { font-style: normal; font-weight: 500; color: var(--gold); }
+  .edu-card {
+    background: rgba(255,255,255,.04); border: 1px solid rgba(201,168,76,.2);
+    padding: 36px; margin-bottom: 16px; position: relative;
+    transition: border-color .3s, transform .25s; cursor: default;
+  }
+  .edu-card:hover { border-color: var(--gold); transform: translateX(6px); }
+  .edu-card-icon { font-size: 1.8rem; margin-bottom: 10px; }
+  .edu-card-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+  .edu-card-body { font-size: .85rem; color: var(--gray-light); line-height: 1.6; }
+  .edu-card-tag {
+    position: absolute; top: 16px; right: 16px;
+    background: rgba(201,168,76,.15); color: var(--gold);
+    font-size: .62rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; padding: 5px 10px;
+  }
+
+  /* ── PROOF ── */
+  #proof { background: var(--green-deep); padding: 120px 0; }
+  .proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .proof-item { padding: 52px 40px; border-right: 1px solid rgba(201,168,76,.1); text-align: center; }
+  .proof-item:last-child { border-right: none; }
+  .proof-num { font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 900; color: var(--gold); display: block; margin-bottom: 6px; }
+  .proof-label { font-size: .75rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: rgba(240,235,225,.5); }
+  .proof-sub { font-size: .82rem; color: var(--cream-dark); margin-top: 6px; line-height: 1.5; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--off-black); padding: 140px 0; }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .testi-card { background: var(--black); padding: 52px 40px; position: relative; }
+  .testi-quote-mark { font-family: 'Playfair Display', serif; font-size: 5rem; line-height: .8; color: var(--gold); opacity: .3; margin-bottom: 16px; display: block; }
+  .testi-body { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; font-weight: 300; color: var(--cream); line-height: 1.7; margin-bottom: 32px; }
+  .testi-author { display: flex; align-items: center; gap: 16px; }
+  .testi-avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--green-deep); border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); flex-shrink: 0;
+  }
+  .testi-name { font-size: .88rem; font-weight: 600; color: var(--white); display: block; }
+  .testi-info { font-size: .78rem; color: var(--gray-light); }
+  .testi-stars { color: var(--gold); font-size: .85rem; margin-bottom: 14px; }
+
+  /* ── COMPARISON ── */
+  #compare { background: var(--black); padding: 140px 0; }
+  .comp-table { width: 100%; border-collapse: collapse; }
+  .comp-table th {
+    padding: 20px 24px; text-align: left;
+    font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gray-light);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+  }
+  .comp-table th.highlight { background: rgba(13,43,26,.6); color: var(--gold); border-bottom: 2px solid var(--gold); }
+  .comp-table td { padding: 18px 24px; font-size: .9rem; color: var(--cream-dark); border-bottom: 1px solid rgba(255,255,255,.04); vertical-align: middle; }
+  .comp-table tr:hover td { background: rgba(255,255,255,.02); }
+  .comp-table td.feature-name { font-weight: 500; color: var(--white); font-size: .88rem; }
+  .comp-table td.highlight { background: rgba(13,43,26,.3); color: var(--white); }
+  .check { color: var(--gold); font-size: 1.1rem; }
+  .cross { color: #444; font-size: 1.1rem; }
+  .partial { color: #777; font-size: .8rem; }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--off-black); padding: 140px 0; }
+  .timeline { position: relative; padding-left: 48px; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,.1)); }
+  .timeline-item { position: relative; margin-bottom: 64px; }
+  .timeline-dot { position: absolute; left: -44px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--gold); border: 3px solid var(--off-black); box-shadow: 0 0 0 1px var(--gold); }
+  .timeline-month { font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; font-weight: 600; }
+  .timeline-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+  .timeline-body { font-size: .9rem; color: var(--gray-light); line-height: 1.75; max-width: 500px; }
+  .timeline-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+  .tag { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); background: rgba(201,168,76,.1); padding: 5px 12px; font-weight: 600; }
+
+  /* ── AUDIENCE ── */
+  #audience { background: var(--black); padding: 140px 0; }
+  .audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 72px; }
+  .audience-card { background: var(--off-black); padding: 52px 40px; position: relative; overflow: hidden; transition: background .3s; }
+  .audience-card:hover { background: #111; }
+  .audience-num { font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 900; color: rgba(201,168,76,.07); position: absolute; top: 20px; right: 24px; line-height: 1; }
+  .audience-icon { font-size: 2rem; margin-bottom: 20px; display: block; }
+  .audience-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+  .audience-age { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-weight: 600; }
+  .audience-body { font-size: .9rem; color: var(--gray-light); line-height: 1.75; }
+
+  /* ── FAQ ── */
+  #faq { background: var(--off-black); padding: 120px 0; }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 64px; }
+  .faq-item { background: var(--black); padding: 36px 40px; cursor: pointer; border-left: 2px solid transparent; transition: border-color .25s; }
+  .faq-item.open { border-left-color: var(--gold); }
+  .faq-q { font-size: .95rem; font-weight: 600; color: var(--white); display: flex; justify-content: space-between; align-items: center; gap: 16px; user-select: none; }
+  .faq-toggle { font-size: 1.3rem; color: var(--gold); flex-shrink: 0; transition: transform .25s; line-height: 1; }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); }
+  .faq-a { font-size: .88rem; color: var(--gray-light); line-height: 1.8; max-height: 0; overflow: hidden; transition: max-height .4s ease, margin-top .3s; }
+  .faq-item.open .faq-a { max-height: 320px; margin-top: 16px; }
+
+  /* ── BOOK A CALL ── */
+  #book-call {
+    background: var(--off-black); padding: 100px 0;
+    border-top: 1px solid rgba(201,168,76,.12);
+  }
+  .call-card {
+    max-width: 860px; margin: 0 auto;
+    background: linear-gradient(135deg, #0D2B1A 0%, #0a1a10 60%, #060606 100%);
+    border: 1px solid rgba(201,168,76,.25);
+    padding: 72px 80px;
+    display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .call-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold) 0%, rgba(201,168,76,.2) 100%);
+  }
+  .call-card::after {
+    content: '📞'; position: absolute; right: -10px; bottom: -20px;
+    font-size: 9rem; opacity: .04; line-height: 1;
+  }
+  .call-card-eyebrow {
+    font-size: .7rem; font-weight: 700; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .call-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: pulse 1.8s ease-in-out infinite; }
+  .call-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 700; color: var(--white);
+    line-height: 1.15; margin-bottom: 16px;
+  }
+  .call-card-title em { font-style: italic; color: var(--gold); font-weight: 400; }
+  .call-card-body { font-size: .92rem; color: var(--cream-dark); line-height: 1.75; max-width: 420px; }
+  .call-cta-col { display: flex; flex-direction: column; align-items: center; gap: 16px; flex-shrink: 0; }
+  .btn-call {
+    background: var(--gold); color: var(--black);
+    font-size: .82rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+    padding: 20px 40px; border: none; cursor: pointer;
+    text-decoration: none; display: inline-block; white-space: nowrap;
+    transition: background .25s, transform .2s, box-shadow .25s;
+  }
+  .btn-call:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 14px 40px rgba(201,168,76,.3); }
+  .call-reassurance { font-size: .72rem; color: var(--gray-mid); letter-spacing: .06em; text-align: center; }
+  .call-reassurance span { color: var(--gold); }
+  @media (max-width: 768px) {
+    .call-card { grid-template-columns: 1fr; padding: 48px 32px; gap: 32px; }
+    .call-cta-col { align-items: flex-start; }
+  }
+
+  /* ── CTA ── */
+  #cta {
+    background: linear-gradient(160deg, #0D2B1A 0%, #060606 60%);
+    padding: 160px 0; text-align: center;
+    border-top: 1px solid rgba(201,168,76,.12);
+  }
+  .cta-eyebrow { font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; font-weight: 600; }
+  .cta-program-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 1.6vw, 1.2rem); letter-spacing: .42em; text-transform: uppercase; color: rgba(201,168,76,.65); margin-bottom: 24px; display: block; font-weight: 300; }
+  .cta-title { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900; color: var(--white); margin-bottom: 16px; line-height: 1.08; }
+  .cta-title em { font-style: italic; color: var(--gold); font-weight: 400; }
+  .cta-sub { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; font-weight: 300; color: var(--cream-dark); margin-bottom: 56px; max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .cta-actions { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 56px; }
+  .cta-note { font-size: .78rem; color: var(--gray-mid); letter-spacing: .05em; }
+  .cta-note span { color: var(--gold); }
+  .cohort-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.25);
+    padding: 10px 20px; margin-bottom: 48px;
+    font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600;
+  }
+  .cohort-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: pulse 1.8s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+
+  /* ── FOOTER ── */
+  footer { background: var(--off-black); padding: 72px 60px 48px; border-top: 1px solid rgba(255,255,255,.06); }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+  .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+  .footer-brand-name span { color: var(--gold); }
+  .footer-program-sub { font-size: .68rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(201,168,76,.5); margin-bottom: 14px; display: block; }
+  .footer-brand-tagline { font-size: .85rem; color: var(--gray-mid); line-height: 1.7; max-width: 280px; }
+  .footer-col-title { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-weight: 700; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 10px; }
+  .footer-links a { font-size: .85rem; color: var(--gray-mid); text-decoration: none; transition: color .25s; }
+  .footer-links a:hover { color: var(--cream); }
+  .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,.05); padding-top: 28px; }
+  .footer-copy { font-size: .78rem; color: #444; }
+  .footer-legal { display: flex; gap: 28px; }
+  .footer-legal a { font-size: .78rem; color: #444; text-decoration: none; transition: color .25s; }
+  .footer-legal a:hover { color: var(--cream); }
+
+  /* ── ANIMATIONS ── */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: .1s; }
+  .reveal-delay-2 { transition-delay: .2s; }
+  .reveal-delay-3 { transition-delay: .35s; }
+  .reveal-delay-4 { transition-delay: .5s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .story-grid, .edu-inner, .program-tracks { grid-template-columns: 1fr; }
+    .advantages-grid, .testi-grid, .addons-grid { grid-template-columns: 1fr 1fr; }
+    .proof-grid, .audience-grid { grid-template-columns: 1fr 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    nav { padding: 24px 32px; }
+    .container { padding: 0 32px; }
+    .hero-content { padding: 0 32px; }
+    .hero-stats { left: 32px; right: 32px; gap: 32px; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .advantages-grid, .testi-grid, .proof-grid, .audience-grid,
+    .faq-grid, .program-tracks, .addons-grid { grid-template-columns: 1fr; }
+    .hero-stats { display: none; }
+    .vs-inner { grid-template-columns: 1fr; }
+    .vs-divider { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">SPORT<span>RAIL</span> <span class="nav-program">· ORIGEM</span></a>
+  <ul class="nav-links">
+    <li><a href="#portugal">Portugal</a></li>
+    <li><a href="#program">The Programme</a></li>
+    <li><a href="#addons">Add-Ons</a></li>
+    <li><a href="#education">Football Education</a></li>
+    <li><a href="#experience">The Journey</a></li>
+  </ul>
+  <div style="display:flex;gap:12px;align-items:center;">
+    <a href="#book-call" class="nav-cta" style="background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,.4);">Book a Call</a>
+    <a href="#cta" class="nav-cta">Apply for 2026</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pitch"></div>
+  <div class="hero-circle"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Portugal · Europe · 2026 Cohort Now Open</div>
+    <span class="hero-program-name">· O R I G E M ·</span>
+    <h1 class="hero-h1">
+      The Gap Year That<br/>
+      Changes <em>Everything.</em>
+    </h1>
+    <p class="hero-sub">
+      You've just graduated from high school. College is the plan — but the best year of your football life is waiting first. Develop in Portugal. Return different.
+    </p>
+    <div class="hero-actions">
+      <a href="#cta" class="btn-primary">Apply for the 2026 Cohort</a>
+      <a href="#book-call" class="btn-ghost">Book a Free Call</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <span class="hero-stat-num">#7</span>
+      <span class="hero-stat-label">Global Peace Index</span>
+    </div>
+    <div>
+      <span class="hero-stat-num">10</span>
+      <span class="hero-stat-label">Months of Full Season</span>
+    </div>
+    <div>
+      <span class="hero-stat-num">300+</span>
+      <span class="hero-stat-label">Sunny Training Days</span>
+    </div>
+    <div>
+      <span class="hero-stat-num">1</span>
+      <span class="hero-stat-label">Place in the World Like This</span>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- STORY -->
+<section id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-visual reveal">
+        <div class="story-card-main">
+          <div class="story-badge">
+            <span class="story-badge-num">30%</span>
+            <span class="story-badge-label">earn club<br/>trial offers</span>
+          </div>
+          <div class="story-card-flag">🇵🇹</div>
+          <div class="story-card-quote">
+            "Portugal doesn't just produce footballers. It produces something rarer — complete players who see the game differently."
+          </div>
+          <div class="story-card-attr">— ORIGEM Coaching Staff, Portugal</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-eyebrow reveal">The Story</div>
+        <h2 class="section-title reveal reveal-delay-1">You've Reached<br/>the <em>Crossroads.</em></h2>
+        <div class="gold-rule reveal reveal-delay-2"></div>
+        <p class="section-body reveal reveal-delay-2">
+          You've just finished high school. College is waiting — but a part of you knows you're not done developing yet. Not even close. The gap year isn't a delay. For the right player, it's the smartest move you'll ever make.
+        </p>
+        <blockquote class="story-pull reveal reveal-delay-3">
+          "The players who arrive to college tryouts with a year of European football behind them — they don't just stand out. They stand alone."
+        </blockquote>
+        <p class="section-body reveal reveal-delay-3">
+          Portugal is where that year happens. Cristiano Ronaldo trained here. João Félix. Bernardo Silva. João Cancelo. Rafael Leão. The country produces more elite professionals per capita than any other nation on earth — not by accident, but by method. The method you're about to step inside.
+        </p>
+        <p class="section-body reveal reveal-delay-4" style="margin-top:16px;">
+          ORIGEM puts you inside that world — cared for in every dimension. Tactically. Physically. Nutritionally. Psychologically. Then you go to college. But as a different player entirely.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY PORTUGAL -->
+<section id="portugal">
+  <div class="container">
+    <div class="portugal-intro reveal">
+      <div class="section-eyebrow">Why Portugal</div>
+      <h2 class="section-title" style="text-align:center;">Six Reasons the Smart Money<br/>Chooses <em>Portugal Over Spain</em></h2>
+    </div>
+    <div class="advantages-grid">
+      <div class="adv-card reveal">
+        <span class="adv-icon">⚽</span>
+        <div class="adv-title">Unrivalled Football Pedigree</div>
+        <p class="adv-body">Cristiano Ronaldo. João Félix. Bernardo Silva. João Cancelo. Rafael Leão. All products of the Portuguese football system — a machine that develops technically complete, tactically intelligent players like no other country on earth.</p>
+        <div class="adv-stat">#1</div>
+        <div class="adv-stat-label">Pro players per capita globally</div>
+      </div>
+      <div class="adv-card reveal reveal-delay-1">
+        <span class="adv-icon">🏆</span>
+        <div class="adv-title">Daily Professional Training</div>
+        <p class="adv-body">Portugal doesn't develop the world's best players by chance — it has a method. You train inside that method, every day. Friendly matches against visiting academies and touring teams add game rhythm. The best players may earn the opportunity to train with our partner clubs.</p>
+        <div class="adv-stat">Daily</div>
+        <div class="adv-stat-label">Professional coaching environment</div>
+      </div>
+      <div class="adv-card reveal reveal-delay-2">
+        <span class="adv-icon">🛡️</span>
+        <div class="adv-title">The Safest Country in Europe</div>
+        <p class="adv-body">Portugal ranks #7 on the Global Peace Index — one of the lowest crime rates in the developed world. Your family sends you with complete confidence. You arrive and direct every ounce of focus onto football.</p>
+        <div class="adv-stat">#7</div>
+        <div class="adv-stat-label">Global Peace Index 2025</div>
+      </div>
+      <div class="adv-card reveal">
+        <span class="adv-icon">🗣️</span>
+        <div class="adv-title">English, Everywhere</div>
+        <p class="adv-body">Unlike Spain or France, Portugal ranks among the highest English proficiency nations in Europe. You'll be coached in English, supported in English, and transition seamlessly from day one — so nothing slows your progress.</p>
+        <div class="adv-stat">Top 10</div>
+        <div class="adv-stat-label">English proficiency in Europe</div>
+      </div>
+      <div class="adv-card reveal reveal-delay-1">
+        <span class="adv-icon">☀️</span>
+        <div class="adv-title">Train Every Single Day</div>
+        <p class="adv-body">300+ days of Mediterranean sunshine per year. No frozen pitches. No cancelled sessions. No excuses. Every day of your 10 months is a full training day — the consistency your development demands.</p>
+        <div class="adv-stat">300+</div>
+        <div class="adv-stat-label">Training days per year</div>
+      </div>
+      <div class="adv-card reveal reveal-delay-2">
+        <span class="adv-icon">🎯</span>
+        <div class="adv-title">An Undiscovered Stage</div>
+        <p class="adv-body">Spain has over 10 gap year programmes competing for the same scouts. Portugal has a fraction of that — meaning every ORIGEM player is a standout, not one face in a crowd. Visibility here is real and it matters.</p>
+        <div class="adv-stat">Less Crowded</div>
+        <div class="adv-stat-label">Far fewer competitors for scout attention</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VS BANNER -->
+<div class="vs-banner">
+  <div class="vs-inner">
+    <div class="vs-col">
+      <div class="vs-col-title" style="color:var(--gold);">🇵🇹 ORIGEM in Portugal</div>
+      <div class="vs-item"><span class="vs-check">✦</span><span class="vs-item-text">Sports nutrition programme built into your daily schedule</span></div>
+      <div class="vs-item"><span class="vs-check">✦</span><span class="vs-item-text">Sports psychology — mental performance coaching throughout the year</span></div>
+      <div class="vs-item"><span class="vs-check">✦</span><span class="vs-item-text">Daily training inside the Portuguese football method — plus friendly matches throughout the season</span></div>
+      <div class="vs-item"><span class="vs-check">✦</span><span class="vs-item-text">Underdeveloped market — more visibility, less noise</span></div>
+      <div class="vs-item"><span class="vs-check">✦</span><span class="vs-item-text">Optional Football Education pathway with Sportrail — unavailable anywhere else</span></div>
+    </div>
+    <div class="vs-divider"><span>VS</span></div>
+    <div class="vs-col">
+      <div class="vs-col-title" style="color:var(--gray-light);">🇪🇸 Typical Spain Programme</div>
+      <div class="vs-item"><span class="vs-cross">✗</span><span class="vs-item-text" style="color:#666;">Nutrition rarely included — generic meal plans, if anything</span></div>
+      <div class="vs-item"><span class="vs-cross">✗</span><span class="vs-item-text" style="color:#666;">Psychology / mental coaching seldom part of the programme</span></div>
+      <div class="vs-item"><span class="vs-cross">✗</span><span class="vs-item-text" style="color:#666;">Training methods often generic — no structured methodology from the football system</span></div>
+      <div class="vs-item"><span class="vs-cross">✗</span><span class="vs-item-text" style="color:#666;">10+ programmes competing — scouts are already saturated</span></div>
+      <div class="vs-item"><span class="vs-cross">✗</span><span class="vs-item-text" style="color:#666;">No professional qualification pathway — training only</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROGRAMME -->
+<section id="program">
+  <div class="container">
+    <div class="program-header">
+      <div class="section-eyebrow reveal">The ORIGEM Programme</div>
+      <h2 class="section-title reveal reveal-delay-1">Two Tracks.<br/>One <em>Extraordinary</em> Year.</h2>
+      <p class="section-body reveal reveal-delay-2" style="margin-top:20px;">Both ORIGEM tracks are built on the same elite foundation — full-season Portuguese club football, daily professional coaching, and the complete athlete care package. Choose the depth of your professional development.</p>
+    </div>
+    <div class="program-tracks">
+      <!-- Track 1 -->
+      <div class="track-card reveal">
+        <div class="track-number">01</div>
+        <div class="track-title">ORIGEM Foundation</div>
+        <div class="track-subtitle">The Elite Gap Year · Portugal</div>
+        <div class="track-duration">⏱ 10 Months · Full Season</div>
+        <div class="track-rule"></div>
+
+        <p style="font-size:.85rem;color:var(--gray-light);margin-bottom:24px;line-height:1.7;">Everything you need to develop as a complete athlete — on and off the pitch — across an entire Portuguese football season.</p>
+
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">On the Pitch</p>
+        <div class="track-feature"><span class="track-feature-check">✦</span><span class="track-feature-text"><strong style="color:var(--white);">Friendly Matches</strong> — regular matches against visiting academies, touring teams, and international programmes throughout the season</span></div>
+        <div class="track-feature"><span class="track-feature-check">✦</span><span class="track-feature-text"><strong style="color:var(--white);">Partner Club Integration</strong> — the best-performing players may be invited to train with our partner club outside programme hours, alongside Portuguese players in a real club environment</span></div>
+        <div class="track-feature"><span class="track-feature-check">✦</span><span class="track-feature-text">Twice-daily UEFA-coached sessions (approx. 4 hrs training per day)</span></div>
+        <div class="track-feature"><span class="track-feature-check">✦</span><span class="track-feature-text">Strength & conditioning programme tailored to your position</span></div>
+
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:20px 0 16px;">Body & Mind</p>
+        <div class="track-feature"><span class="track-feature-check">✦</span><span class="track-feature-text"><strong style="color:var(--white);">Sports Nutrition Programme</strong> — personalised meal planning, performance fuelling, and recovery nutrition with a qualified nutritionist</span></div>
+        <div class="track-feature"><span class="track-feature-check">✦</span><span class="track-feature-text"><strong style="color:var(--white);">Sports Psychology</strong> — regular mental performance coaching sessions covering focus, resilience, pressure management, and identity</span></div>
+        <div class="track-feature"><span class="track-feature-check">✦</span><span class="track-feature-text">24/7 welfare support and pastoral care throughout the year</span></div>
+
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:20px 0 16px;">Life in Portugal</p>
+        <div class="track-feature"><span class="track-feature-check">✦</span><span class="track-feature-text">Private accommodation + full board (all meals included)</span></div>
+        <div class="track-feature"><span class="track-feature-check">✦</span><span class="track-feature-text">Health insurance + visa processing support</span></div>
+        <div class="track-feature"><span class="track-feature-check">✦</span><span class="track-feature-text">Portuguese language immersion course</span></div>
+        <div class="track-feature"><span class="track-feature-check">✦</span><span class="track-feature-text">Training kit, gym access, airport arrival transfers</span></div>
+
+        <a href="#cta" class="track-cta outline">Apply for ORIGEM Foundation →</a>
+      </div>
+
+      <!-- Track 2 -->
+      <div class="track-card featured reveal reveal-delay-2">
+        <div class="track-number">02</div>
+        <div class="track-title">ORIGEM Elite</div>
+        <div class="track-subtitle">The Premium Development Year · Portugal</div>
+        <div class="track-duration">⏱ 10 Months · Full Season + Career Layer</div>
+        <div class="track-rule"></div>
+
+        <p style="font-size:.85rem;color:var(--cream-dark);margin-bottom:24px;line-height:1.7;">Everything in ORIGEM Foundation — plus a complete career development layer designed to make you impossible to overlook when you return home.</p>
+
+        <p style="font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">All of ORIGEM Foundation, plus:</p>
+        <div class="track-feature"><span class="track-feature-check" style="color:var(--gold);">✦</span><span class="track-feature-text"><strong style="color:var(--white);">Masterclass Series</strong> — live sessions with professionals across scouting, sports science, performance analysis, agency, and club management</span></div>
+        <div class="track-feature"><span class="track-feature-check" style="color:var(--gold);">✦</span><span class="track-feature-text"><strong style="color:var(--white);">College Recruiting Package</strong> — dedicated highlight reel production, recruiting profile build, and coach outreach strategy</span></div>
+        <div class="track-feature"><span class="track-feature-check" style="color:var(--gold);">✦</span><span class="track-feature-text">Personal development portfolio — a documented record of your year, growth metrics, and coach assessments</span></div>
+        <div class="track-feature"><span class="track-feature-check" style="color:var(--gold);">✦</span><span class="track-feature-text">Lifetime access to the Sportrail alumni and professional football network</span></div>
+        <div class="track-feature"><span class="track-feature-check" style="color:var(--gold);">✦</span><span class="track-feature-text">Priority consideration for Sportrail coaching and mentoring opportunities post-graduation</span></div>
+
+        <p style="font-size:.8rem;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--cream-dark);margin-top:28px;line-height:1.6;border-left:2px solid var(--gold);padding-left:18px;">
+          ORIGEM Elite players don't just return from Portugal — they return with an entire case built for their next chapter, whether that's D1 college, a professional trial, or a career in the game.
+        </p>
+
+        <a href="#cta" class="track-cta gold">Apply for ORIGEM Elite →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section id="addons">
+  <div class="container">
+    <div class="addons-header reveal">
+      <div class="section-eyebrow" style="justify-content:center;">Personalise Your Year</div>
+      <h2 class="section-title" style="text-align:center;">Optional <em>Add-Ons</em><br/>For Those Who Want More</h2>
+      <p style="font-size:1rem;color:var(--gray-light);text-align:center;margin-top:20px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.8;">
+        Every ORIGEM player gets an exceptional programme as standard. For those who want to push even further, we offer three elite additions.
+      </p>
+    </div>
+    <div class="addons-grid">
+      <div class="addon-card reveal">
+        <span class="addon-icon">📊</span>
+        <div class="addon-title">Performance Analysis</div>
+        <span class="addon-tag">Add-On Available</span>
+        <p class="addon-body">Individual video analysis sessions with a dedicated analyst reviewing your match footage. Detailed performance metrics, heatmaps, and position-specific breakdowns delivered weekly. Understand your game at a professional level — and know exactly what to fix.</p>
+      </div>
+      <div class="addon-card reveal reveal-delay-1">
+        <span class="addon-icon">⚡</span>
+        <div class="addon-title">1v1 Technical Training</div>
+        <span class="addon-tag">Add-On Available</span>
+        <p class="addon-body">Private one-to-one sessions with specialist position coaches — dedicated time to address your most specific technical needs. Whether it's first touch, movement off the ball, set-piece delivery, or goalkeeper distribution, this is where elite players find their edge.</p>
+      </div>
+      <div class="addon-card reveal reveal-delay-2">
+        <span class="addon-icon">🔥</span>
+        <div class="addon-title">Extra Training Sessions</div>
+        <span class="addon-tag">Add-On Available</span>
+        <p class="addon-body">Additional pitch time beyond the standard programme schedule. Structured small-group sessions focused on specific skills blocks — finishing, pressing, transition play, and more. For the player who arrives with hunger and wants to leave with transformation.</p>
+      </div>
+      <div class="addon-card reveal reveal-delay-3" style="grid-column:1/-1;max-width:calc(33.33% - 2px);">
+        <span class="addon-icon">📚</span>
+        <div class="addon-title">Sportrail Football Education</div>
+        <span class="addon-tag">Optional Complement</span>
+        <p class="addon-body">Take your understanding of the game further with Sportrail's specialist football education courses — delivered fully online, at your own pace, alongside your playing year. Coaching methodology, performance analysis, sports science, and more. The only gap year programme in the world where you can do this.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTBALL EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="edu-inner">
+      <div>
+        <div class="section-eyebrow reveal">Sportrail Football Education</div>
+        <h2 class="section-title reveal reveal-delay-1">Don't Just Play.<br/><em>Understand.</em></h2>
+        <div class="gold-rule reveal reveal-delay-2"></div>
+        <p class="edu-manifesto reveal reveal-delay-2">
+          "The players who understand the game they're playing always have an edge. Not just on the pitch. In every room they walk into for the rest of their careers."
+        </p>
+        <p class="section-body reveal reveal-delay-3">
+          Sportrail is an established football education provider. The coaches, analysts, and managers running clubs across Britain, Ireland, and Europe have trained through Sportrail. ORIGEM players have the unique option to complement their playing year with Sportrail's football courses — something no other gap year programme in the world offers.
+        </p>
+        <p class="section-body reveal reveal-delay-3" style="margin-top:16px;">
+          Completely optional. Completely flexible. You can take one course or several, at your own pace alongside your playing year. Whether you're heading to college, chasing a professional contract, or curious about a future in the game behind the scenes — understanding the game at a deeper level only sharpens your edge on the pitch.
+        </p>
+        <a href="#cta" class="btn-ghost reveal reveal-delay-4" style="margin-top:36px;display:inline-block;">Learn About Sportrail Football Education →</a>
+      </div>
+      <div>
+        <div class="edu-card reveal">
+          <div class="edu-card-tag">All Players</div>
+          <div class="edu-card-icon">📋</div>
+          <div class="edu-card-title">Football Foundations Course</div>
+          <div class="edu-card-body">An introduction to professional football methodology — tactics, analysis, and coaching fundamentals. Delivered online and fully flexible alongside your playing year. An eye-opening perspective on the game you thought you already knew.</div>
+        </div>
+        <div class="edu-card reveal reveal-delay-1">
+          <div class="edu-card-tag">Optional Add-On</div>
+          <div class="edu-card-icon">🏅</div>
+          <div class="edu-card-title">Specialist Football Courses</div>
+          <div class="edu-card-body">Deepen your understanding with Sportrail's specialist football courses — covering coaching methodology, performance analysis, sports science application, and more. Available alongside your playing year at your own pace.</div>
+        </div>
+        <div class="edu-card reveal reveal-delay-2">
+          <div class="edu-card-icon">🌐</div>
+          <div class="edu-card-title">Sportrail Alumni Network</div>
+          <div class="edu-card-body">Join a community of football professionals across coaching, analysis, agency, and management. Relationships that open doors no CV can alone — for the rest of your career, not just for the year.</div>
+        </div>
+        <div class="edu-card reveal reveal-delay-3">
+          <div class="edu-card-icon">🎓</div>
+          <div class="edu-card-title">Masterclass Series</div>
+          <div class="edu-card-body">Live sessions with professionals across scouting, sports science, performance analysis, agency, and club management. Included in ORIGEM Elite — also available as a standalone add-on. The curriculum of real experience — not textbooks.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section id="proof">
+  <div class="container" style="padding:0;">
+    <div class="proof-grid">
+      <div class="proof-item reveal">
+        <span class="proof-num">600+</span>
+        <div class="proof-label">Players Developed</div>
+        <div class="proof-sub">Across the Sportrail network</div>
+      </div>
+      <div class="proof-item reveal reveal-delay-1">
+        <span class="proof-num">30%</span>
+        <div class="proof-label">Earn Club Trial Offers</div>
+        <div class="proof-sub">At professional & semi-professional level</div>
+      </div>
+      <div class="proof-item reveal reveal-delay-2">
+        <span class="proof-num">10+</span>
+        <div class="proof-label">Nationalities Served</div>
+        <div class="proof-sub">A genuinely global alumni community</div>
+      </div>
+      <div class="proof-item reveal reveal-delay-3">
+        <span class="proof-num">100%</span>
+        <div class="proof-label">Holistic Programme</div>
+        <div class="proof-sub">Nutrition + Psychology + Football integrated</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-eyebrow reveal" style="justify-content:center;margin-bottom:12px;">What Our Players Say</div>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center;margin-bottom:72px;"><em>Their Words.</em> Not Ours.</h2>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <span class="testi-quote-mark">"</span>
+        <p class="testi-body">The nutrition and psychology side changed everything. I'd never had a nutritionist in my life — within two months my recovery was different, my energy on the pitch was different, my mind was different. Then the daily training sessions, the friendly matches, the partner club days. The level here is just different from anything else out there.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JM</div>
+          <div>
+            <span class="testi-name">Jake M., 22</span>
+            <span class="testi-info">Atlanta, Georgia — ORIGEM Elite Alumnus</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <span class="testi-quote-mark">"</span>
+        <p class="testi-body">My college coach said she'd never seen a recruit arrive so prepared — physically, mentally, tactically. She didn't know what ORIGEM was. By the end of the call she was asking me for the website. The CPD coaching cert I earned on top just sealed it. I was a different player and I could prove it.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">CT</div>
+          <div>
+            <span class="testi-name">Connor T., 20</span>
+            <span class="testi-info">Chicago, Illinois — ORIGEM Foundation · Now D1 College</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <span class="testi-quote-mark">"</span>
+        <p class="testi-body">I added the Performance Analysis add-on and the 1v1 sessions. Worth every penny. I'd watch my match film Sunday, sit with the analyst Monday, work with the position coach Tuesday, and see the change in the next game. That feedback loop just doesn't exist anywhere else in the gap year world.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">LB</div>
+          <div>
+            <span class="testi-name">Liam B., 19</span>
+            <span class="testi-info">Boston, Massachusetts — ORIGEM Elite + Add-Ons</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section id="compare">
+  <div class="container">
+    <div class="section-eyebrow reveal">How We Compare</div>
+    <h2 class="section-title reveal reveal-delay-1" style="margin-bottom:12px;">ORIGEM vs. <em>Every Other Option</em></h2>
+    <p class="section-body reveal reveal-delay-2" style="margin-bottom:48px;">The features that actually move the needle on your development — compared honestly.</p>
+    <div class="reveal" style="overflow-x:auto;">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th style="width:26%;">Feature</th>
+            <th class="highlight" style="width:18%;">ORIGEM</th>
+            <th>Competitor A</th>
+            <th>Competitor B</th>
+            <th>Competitor C</th>
+            <th>Competitor D</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feature-name">Sports Nutrition Programme</td>
+            <td class="highlight"><span class="check">✦ Included</span></td>
+            <td><span class="check">✦ Included</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">Sports Psychology / Mental Coaching</td>
+            <td class="highlight"><span class="check">✦ Included</span></td>
+            <td><span class="check">✦ Included</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">Football Education Courses (Optional)</td>
+            <td class="highlight"><span class="check">✦ Sportrail Ed.</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">Performance Analysis Add-On</td>
+            <td class="highlight"><span class="check">✦ Available</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="partial">Limited</span></td>
+            <td><span class="check">✦ Basic</span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">1v1 Technical Training Add-On</td>
+            <td class="highlight"><span class="check">✦ Available</span></td>
+            <td><span class="partial">Limited</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">Friendly matches vs academies / touring teams</td>
+            <td class="highlight"><span class="check">✦ Yes</span></td>
+            <td><span class="partial">Limited</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="partial">Varies</span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">Professional alumni network</td>
+            <td class="highlight"><span class="check">✦ Sportrail global</span></td>
+            <td><span class="cross">✗</span></td>
+            <td><span class="partial">NCAA only</span></td>
+            <td><span class="partial">Club only</span></td>
+            <td><span class="check">✦ NCAA recruiting</span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">Country safety ranking</td>
+            <td class="highlight"><span class="check">✦ Portugal #7</span></td>
+            <td><span class="check">✦ Top 10</span></td>
+            <td><span class="partial">Mid-tier</span></td>
+            <td><span class="partial">Mid-tier</span></td>
+            <td><span class="check">✦ Top 20</span></td>
+          </tr>
+          <tr>
+            <td class="feature-name">Year-round training weather</td>
+            <td class="highlight"><span class="check">✦ 300+ sunny days</span></td>
+            <td><span class="check">✦ Yes</span></td>
+            <td><span class="check">✦ Yes</span></td>
+            <td><span class="check">✦ Yes</span></td>
+            <td><span class="cross">✗ Cold winters</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE TIMELINE -->
+<section id="experience">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;">
+      <div>
+        <div class="section-eyebrow reveal">The ORIGEM Journey</div>
+        <h2 class="section-title reveal reveal-delay-1">Ten Months.<br/><em>Infinite Growth.</em></h2>
+        <div class="gold-rule reveal reveal-delay-2"></div>
+        <p class="section-body reveal reveal-delay-2">
+          Every month of an ORIGEM year is intentional. From your first training session on Portuguese soil to the moment you fly home — transformed — every day is designed to develop you further than you thought possible.
+        </p>
+        <p class="section-body reveal reveal-delay-3" style="margin-top:16px;">
+          Tactically. Physically. Nutritionally. Psychologically. Professionally. This is the most complete athletic development year available to any footballer in the world.
+        </p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-month">August – September</div>
+          <div class="timeline-title">Arrival & Integration</div>
+          <div class="timeline-body">Club registration, physical baselines, nutritional profiling, psychological onboarding, language immersion. You stop being a visitor and start being a player.</div>
+          <div class="timeline-tags"><span class="tag">Onboarding</span><span class="tag">Nutrition Baseline</span><span class="tag">Psychology</span></div>
+        </div>
+        <div class="timeline-item reveal reveal-delay-1">
+          <div class="timeline-dot"></div>
+          <div class="timeline-month">October – December</div>
+          <div class="timeline-title">Full Training Rhythm</div>
+          <div class="timeline-body">Daily training sessions at full intensity. First friendly matches against visiting academies. Partner club training days for standout performers. Nutrition and psychology sessions embedded weekly. Masterclasses and recruiting package underway for ORIGEM Elite players.</div>
+          <div class="timeline-tags"><span class="tag">Friendly Matches</span><span class="tag">Weekly Nutrition Review</span><span class="tag">Mental Coaching</span></div>
+        </div>
+        <div class="timeline-item reveal reveal-delay-2">
+          <div class="timeline-dot"></div>
+          <div class="timeline-month">January – March</div>
+          <div class="timeline-title">Peak Performance Block</div>
+          <div class="timeline-body">Physical and mental peak. Performance Analysis add-on sessions delivering maximum insight. Friendly matches against visiting academies and touring teams. Highlight reel production begins for ORIGEM Elite players.</div>
+          <div class="timeline-tags"><span class="tag">Peak Training</span><span class="tag">Performance Analysis</span><span class="tag">Masterclasses</span></div>
+        </div>
+        <div class="timeline-item reveal reveal-delay-3">
+          <div class="timeline-dot"></div>
+          <div class="timeline-month">April – May</div>
+          <div class="timeline-title">Showcase, Qualify & Depart</div>
+          <div class="timeline-body">End-of-season friendlies and showcase matches. College recruiting package finalised for ORIGEM Elite players. Trial conversations, college recruitment discussions — you leave Portugal prepared for whatever comes next. A different player. A different person.</div>
+          <div class="timeline-tags"><span class="tag">Showcase Matches</span><span class="tag">Highlight Reel Done</span><span class="tag">College Recruitment</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section id="audience">
+  <div class="container">
+    <div style="text-align:center;max-width:640px;margin:0 auto;">
+      <div class="section-eyebrow reveal" style="justify-content:center;">Who ORIGEM Is For</div>
+      <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">Built for <em>Three Types</em><br/>of Exceptional Player</h2>
+    </div>
+    <div class="audience-grid">
+      <div class="audience-card reveal">
+        <span class="audience-num">I</span>
+        <span class="audience-icon">🎓</span>
+        <div class="audience-title">The HS Grad Not Ready to Stop</div>
+        <div class="audience-age">Ages 17–19 · Just Graduated</div>
+        <p class="audience-body">You've finished high school and college is the plan — but you're not ready to close the chapter on just how good you can become. One year in Portugal, fully developed, transforms what college coaches see when you walk through the door.</p>
+      </div>
+      <div class="audience-card reveal reveal-delay-1">
+        <span class="audience-num">II</span>
+        <span class="audience-icon">🎯</span>
+        <div class="audience-title">The College Prospect Who Wants to Stand Apart</div>
+        <div class="audience-age">Ages 17–20 · Pre-College</div>
+        <p class="audience-body">Every other D1 prospect has the same American reel. You'll arrive to college tryouts with European competitive footage, physical maturity built by professional nutritionists, and a mental edge forged through weekly sports psychology. That's a different conversation entirely.</p>
+      </div>
+      <div class="audience-card reveal reveal-delay-2">
+        <span class="audience-num">III</span>
+        <span class="audience-icon">🔑</span>
+        <div class="audience-title">The Player Who Needs to Know</div>
+        <div class="audience-age">Ages 18–22 · At the Crossroads</div>
+        <p class="audience-body">Part of you wonders whether college soccer is enough — or whether you have what it takes to go further. ORIGEM gives you the environment, the competition, and the honest feedback to find out. Whatever the answer, you return certain. That's priceless.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-eyebrow reveal">Questions</div>
+    <h2 class="section-title reveal reveal-delay-1" style="margin-bottom:8px;">Everything You Need to Know.<br/><em>Ask Anyway.</em></h2>
+    <div class="faq-grid">
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">What level of player is ORIGEM designed for? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">ORIGEM accepts players at high school varsity level or above. All applicants go through a short assessment — a video review and a call with our coaching staff. We maintain cohort quality deliberately so the training environment reflects the standard required to genuinely develop your game.</div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1" onclick="toggleFaq(this)">
+        <div class="faq-q">What does "all-inclusive" actually mean? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">Accommodation, all meals, training kit, visa processing support, health insurance, sports nutrition programme, sports psychology sessions, Portuguese language course, gym access, and airport arrival transfers. The only exclusions are flights and personal spending money. ORIGEM Elite additionally includes the masterclass series, college recruiting package, and personal development portfolio. Optional Sportrail Football Education courses are available as an add-on at separate cost.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">How does the Sports Nutrition Programme work? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">On arrival, you undergo a full nutritional baseline assessment with a qualified sports nutritionist. A personalised meal plan is developed around your position, training load, and body composition goals. Weekly check-ins track progress and adjust the plan through the season. All meals provided at the academy reflect your plan. Recovery nutrition protocols are built into your match and training day schedules.</div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1" onclick="toggleFaq(this)">
+        <div class="faq-q">How does Sports Psychology work within ORIGEM? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">You receive regular one-to-one sessions with a qualified mental performance coach throughout the year. Sessions cover focus, resilience under pressure, confidence, identity, and the psychological demands of competitive football. Group sessions on team dynamics and performance mindset are also woven into the programme calendar — so the mental game is trained as seriously as the technical game.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">What are the Performance Analysis and 1v1 Add-Ons? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">Performance Analysis gives you individual video review sessions with a dedicated analyst — match footage, metrics, heatmaps, and position-specific breakdowns delivered weekly. The 1v1 Technical Training Add-On provides private sessions with a position specialist coach to address your most specific technical needs. Both are booked at the point of enrolment and integrated into your weekly schedule from the start of the programme.</div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1" onclick="toggleFaq(this)">
+        <div class="faq-q">Will players get to play matches during the programme? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">Yes — through friendly matches against visiting academies, touring teams, and other international programmes throughout the season. This is where your match footage is built and your development is tested under real game conditions. Players are not registered with Portuguese clubs on arrival. However, the very best-performing players within the cohort may earn the opportunity to train with our partner club outside programme hours — a chance that has to be earned through the quality of your work on the pitch.</div>
+      </div>
+      <div class="faq-item reveal" onclick="toggleFaq(this)">
+        <div class="faq-q">How does the Sportrail Football Education option work? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">Sportrail Football Education courses are entirely optional — available to any ORIGEM player who wants to complement their playing year with deeper football knowledge. Courses cover topics including coaching methodology, performance analysis, sports science, and football management. They're delivered online and fully flexible, so they fit around your training and match schedule. You can take as little or as much as you want. There's no obligation — but for players who want to understand the game at a deeper level, it's an opportunity that simply doesn't exist on any other gap year programme.</div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1" onclick="toggleFaq(this)">
+        <div class="faq-q">Does the gap year affect my NCAA college eligibility? <span class="faq-toggle">+</span></div>
+        <div class="faq-a">No — a gap year does not affect your NCAA eligibility provided you follow standard eligibility guidelines around amateur status. Our team has guided dozens of players through this process successfully. We advise on your specific situation during the application call and can connect you with our network of college recruiting advisors who specialise in European pathway players.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK A CALL -->
+<section id="book-call">
+  <div class="container">
+    <div class="call-card reveal">
+      <div>
+        <div class="call-card-eyebrow">
+          <span class="call-dot"></span>
+          Free Discovery Call · No Commitment
+        </div>
+        <h2 class="call-card-title">Not Sure If ORIGEM<br/>Is Right For <em>You?</em></h2>
+        <p class="call-card-body">
+          Every ORIGEM player starts with a conversation. Tell us about your game, your goals, and where you want to go. Our coaching staff will give you an honest assessment — whether ORIGEM is the right fit or not. No sales pressure. No obligation. Just a real talk about your future in football.
+        </p>
+      </div>
+      <div class="call-cta-col">
+        <a href="https://calendly.com/sportrail-origem" target="_blank" class="btn-call">Book a Free Call →</a>
+        <div class="call-reassurance">Response within <span>24 hours</span><br/>Available US timezone</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="container">
+    <div class="cohort-badge reveal">
+      <span class="cohort-dot"></span>
+      2026 Cohort — Accepting Applications Now
+    </div>
+    <div class="cta-eyebrow reveal">Your European Chapter</div>
+    <span class="cta-program-name reveal">· O R I G E M · Portugal ·</span>
+    <h2 class="cta-title reveal reveal-delay-1">
+      The Year You Stop<br/><em>Wondering</em> What You Could Be.
+    </h2>
+    <p class="cta-sub reveal reveal-delay-2">
+      Applications for the 2026 ORIGEM cohort are open now. Spots are deliberately limited. Players who act move forward. Players who wait wonder.
+    </p>
+    <div class="cta-actions reveal reveal-delay-3">
+      <a href="mailto:applications@sportrail.com?subject=2026 ORIGEM Application" class="btn-primary">Apply for the 2026 Cohort</a>
+      <a href="#book-call" class="btn-ghost">Book a Free Discovery Call</a>
+    </div>
+    <div class="cta-note reveal reveal-delay-4">
+      Applications acknowledged within <span>48 hours</span> · Cohort call within <span>72 hours</span> · Spots strictly limited per season
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">SPORT<span>RAIL</span></div>
+      <span class="footer-program-sub">ORIGEM · Portugal</span>
+      <p class="footer-brand-tagline">Europe's most complete gap year football programme for US high school graduates. Professional daily training. Sports nutrition. Sports psychology. Friendly matches. Portugal.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">ORIGEM</div>
+      <ul class="footer-links">
+        <li><a href="#program">Foundation Programme</a></li>
+        <li><a href="#program">Professional Programme</a></li>
+        <li><a href="#addons">Add-Ons</a></li>
+        <li><a href="#experience">The Journey</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Football Education</div>
+      <ul class="footer-links">
+        <li><a href="#education">Football Foundations Course</a></li>
+        <li><a href="#education">Specialist Courses</a></li>
+        <li><a href="#education">Alumni Network</a></li>
+        <li><a href="#education">Masterclass Series</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="#book-call">Book a Free Call</a></li>
+        <li><a href="mailto:applications@sportrail.com">Apply to ORIGEM</a></li>
+        <li><a href="mailto:info@sportrail.com">Enquiries</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Sportrail. All rights reserved. ORIGEM is a Sportrail programme.</div>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+// Reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// FAQ toggle
+function toggleFaq(el) {
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) el.classList.add('open');
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// Counter animation
+const proofObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const text = el.textContent.trim();
+    const num = parseFloat(text.replace(/[^0-9.]/g, ''));
+    const suffix = text.replace(/[0-9.]/g, '');
+    if (!isNaN(num) && num > 0) {
+      let start = 0; const dur = 1800; const step = 16; const inc = num / (dur / step);
+      const t = setInterval(() => {
+        start = Math.min(start + inc, num);
+        el.textContent = (Number.isInteger(num) ? Math.floor(start) : start.toFixed(0)) + suffix;
+        if (start >= num) clearInterval(t);
+      }, step);
+    }
+    proofObserver.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.proof-num').forEach(el => proofObserver.observe(el));
+</script>
+</body>
+</html>
